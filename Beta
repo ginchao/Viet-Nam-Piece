@@ -78,6 +78,14 @@ game:GetService("Players").LocalPlayer.Character.YorusV3.Hitbox:FireServer(15, 4
 wait()
 end
 end)
+drops:Toggle("Super Fast Actack Yoruv3",false, function(a)
+getgenv().e = true
+spawn(function()
+while e == true do
+game:GetService("Players").LocalPlayer.Character.YorusV3.Hitbox:FireServer(15, 4000)
+wait(0.35)
+end
+end)
 local btns = serv:Channel("Island")
 
 btns:Button("Kaido Island [2000]", function()
