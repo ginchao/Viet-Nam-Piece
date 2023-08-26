@@ -112,7 +112,7 @@ drops:Toggle("Auto Click Quest Kaido",LocalPlayer, function(v)
 		end
 	end)
 end)
-btns:Label("Được cải tiến bởi itsjustTri25")
+btns:Label("Script được cãi tiến bởi itsjustTri25")
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
 local Weapon = nil
@@ -171,8 +171,8 @@ btns:Button("Platinum Town [2000-3000]", function()
 	rootPart.CFrame = CFrame.new(-1280.56299, 87693.3281, 3242.69702, -0.0239899773, -0, -0.999712229, -0, 1, -0, 0.999712229, 0, -0.0239899773)
 end)
 btns:Toggle("AutoClickGodBox",false, function(e)
-	while wait() do
+	getgenv().AutoClickGodBox = e
+	while AutoClickGodBox == true do wait()
 		fireclickdetector(game:GetService("Workspace")["Platinum Town [ 2000 - 3000 ]"].PlatinumMAP.GodBox.ClickDetector)
 	end
 end)
-btns:Label("Can't Stop")
