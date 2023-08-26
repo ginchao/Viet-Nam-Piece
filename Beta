@@ -112,7 +112,7 @@ drops:Toggle("Auto Click Quest Kaido",LocalPlayer, function(v)
 		end
 	end)
 end)
-btns:Label("Script được cãi tiến bởi itsjustTri25")
+drops:Label("Script được cãi tiến bởi itsjustTri25")
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
 local Weapon = nil
