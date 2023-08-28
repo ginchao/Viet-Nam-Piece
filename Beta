@@ -26,7 +26,7 @@ drops:Toggle("Auto Click Quest NickBeo",LocalPlayer, function(plr)
 
 	spawn(function()
 		while AutoQuest==true do wait()
-			fireclickdetector(game:GetService("Workspace")["NickBeo Island"]["Quest NickBeo"].ClickPart.ClickDetector) 
+			fireclickdetector(game:GetService("Workspace")["NickBeo Island"]["Quest NickBeo"].Quest.ClickDetector) 
 			wait(0.5)
 		end
 	end)
@@ -63,7 +63,7 @@ drops:Toggle("Auto Click Quest Tango",LocalPlayer, function(plr)
 
 	spawn(function()
 		while AutoQuest==true do wait()
-			fireclickdetector(game:GetService("Workspace")["NickBeo Island"]["Quest Tango"].ClickPart.ClickDetector) 
+			fireclickdetector(game:GetService("Workspace")["NickBeo Island"]["Quest Tango"].Quest.ClickDetector) 
 			wait(0.5)
 		end
 	end)
