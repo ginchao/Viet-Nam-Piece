@@ -10,7 +10,7 @@ drops:Toggle("Auto Bring NickBeo",false, function(v)
 		wait(0.2)
 	end
 end)
-drops:Toggle("Auto Click Quest NickBeo",LocalPlayer, function(plr)
+drops:Toggle("Auto Click Quest NickBeo",LocalPlayer, function(v)
 	local plr = game.Players.LocalPlayer
 	local char = plr.Character or plr.Character:AddedWait()
 	local hrp = char.HumanoidRootPart
