@@ -156,7 +156,7 @@ drops:Toggle("Fast Actack Yoruv3",false, function(v)
 end)
 drops:Button("Super Ultra Skill", function()
 for i,v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") then
+if v:IsA("RemoteEvent") and v.Name == "RemoteEvent" then
 v:FireServer()
 end
 end
