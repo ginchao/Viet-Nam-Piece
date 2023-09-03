@@ -119,10 +119,16 @@ local drops = serv:Channel("Weapon")
 local Weaponlist = {}
 local Weapon = nil
 for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+if v:IsA("Tool") then
 	table.insert(Weaponlist,v.Name)
 end
-local drop = drops:Dropdown("Pick", Weaponlist, function(currentOption)
-	Weapon = currentOption
+end
+local drop = drops:Dropdown("Pick", Weaponlist, function(m)
+for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if k == m.Name then
+	Weapon = m
+end
+end
 end)
 drops:Toggle("Auto Equip",false, function(a)
 	AutoEquiped = a
@@ -136,20 +142,20 @@ spawn(function()
 		end
 	end
 end)
-drops:Toggle("Super Fast Actack Yoruv3",false, function(v)
+drops:Toggle("Choose Weapon To Super Fast Actack",false, function(v)
 	getgenv().e = v
 	spawn(function()
 		while e == true do
-			game:GetService("Players").LocalPlayer.Character.YorusV3.Hitbox:FireServer(15, 4000)
+			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer()
 			wait()
 		end
 	end)
 end)
-drops:Toggle("Fast Actack Yoruv3",false, function(v)
+drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
 	getgenv().e = v
 	spawn(function()
 		while e == true do
-			game:GetService("Players").LocalPlayer.Character.YorusV3.Hitbox:FireServer(15, 4000)
+			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer()
 			wait(0.3)
 		end
 	end)
