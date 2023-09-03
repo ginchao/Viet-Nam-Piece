@@ -114,6 +114,7 @@ drops:Toggle("Auto Click Quest Kaido",LocalPlayer, function(v)
 		end
 	end)
 end)
+
 drops:Label("Script được cãi tiến bởi itsjustTri25")
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
@@ -164,6 +165,32 @@ drops:Button("Super Ultra Skill", function()
 for i,v in pairs(game.Players:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "RemoteEvent" then
 v:FireServer()
+end
+end
+end)
+local drops = serv:Channel("Dropdowns")
+local plrlist = {}
+local plr = nil
+for i, v in pairs(game:GetService("Players"):GetChildren()) do
+table.insert(plrlist,v.Name)
+end
+local drop = drops:Dropdown("Pick To Bring", plrlist, function(m)
+for i, b in pairs(game:GetService("Workspace"):GetChildren()) do
+if m == b.name then
+plr = m
+end
+end
+end)
+drops:Toggle("Auto bring player",false, function(a)
+AutoBr = a
+end)
+spawn(function()
+while wait() do
+if AutoBr then
+pcall(function()
+ game.Workspace[plr].HumanoidRootPart.CFrame = 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
+end)
 end
 end
 end)
