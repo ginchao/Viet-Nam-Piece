@@ -197,6 +197,14 @@ end)
 drops:Button("Teleport Player", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
 end)
+drops:Toggle("Auto Teleport",false, function(t)
+getgenv().autotele = t
+spawn(function()
+while autotele do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[Weapon].HumanoidRootPart.CFrame wait()
+end
+end)
+end)
 local btns = serv:Channel("Island")
 
 btns:Button("Kaido Island [2000]", function()
