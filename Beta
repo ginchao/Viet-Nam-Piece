@@ -174,14 +174,14 @@ local plr = nil
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
 table.insert(plrlist,v.Name)
 end
-local drop = drops:Dropdown("Pick To Bring", plrlist, function(m)
+local drop = drops:Dropdown("Choose Player", plrlist, function(m)
 for i, b in pairs(game:GetService("Workspace"):GetChildren()) do
 if m == b.name then
 plr = m
 end
 end
 end)
-drops:Toggle("Auto bring player",false, function(a)
+drops:Toggle("Auto Bring Player",false, function(a)
 AutoBr = a
 end)
 spawn(function()
