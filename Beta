@@ -215,7 +215,7 @@ drops:Toggle("Auto Teleport",false, function(t)
 getgenv().autotele = t
 spawn(function()
 while autotele do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[Weapon].HumanoidRootPart.CFrame wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame wait()
 end
 end)
 end)
