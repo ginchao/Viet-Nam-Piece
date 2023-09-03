@@ -194,6 +194,20 @@ end)
 end
 end
 end)
+drops:Toggle("Auto Bring All Player",false, function(t)
+getgenv().autobr = t
+spawn(function()
+while autobr == true do wait()
+spawn(function()
+for i, v in pairs(game.Workspace:GetChildren()) do
+if v:FindFirstChild("HumanoidRootPart") then 
+v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0) wait()
+end
+end
+end)
+end
+end)
+end)
 drops:Button("Teleport Player", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
 end)
