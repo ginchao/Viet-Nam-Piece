@@ -168,7 +168,7 @@ v:FireServer()
 end
 end
 end)
-local drops = serv:Channel("Dropdowns")
+local drops = serv:Channel("Player")
 local plrlist = {}
 local plr = nil
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
