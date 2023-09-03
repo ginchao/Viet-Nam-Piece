@@ -202,7 +202,7 @@ spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
 if v:FindFirstChild("HumanoidRootPart") then 
 v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0) wait()
-if autobr == false then break; end
+if autobr == false then break end
 end
 end
 end)
