@@ -202,6 +202,7 @@ spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
 if v:FindFirstChild("HumanoidRootPart") then 
 v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0) wait()
+if auto br == false then break; end
 end
 end
 end)
@@ -215,7 +216,9 @@ drops:Toggle("Auto Teleport",false, function(t)
 getgenv().autotele = t
 spawn(function()
 while autotele do wait()
+pcall(function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame wait()
+end)
 end
 end)
 end)
