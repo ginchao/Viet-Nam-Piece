@@ -173,7 +173,7 @@ getgenv().grabtools = l
 spawn(function()
 while grabtools do wait()
 pcall(function()
-for i, m in pairs(game.Workspace:GetDescendants()) do
+for i, m in pairs(game.Workspace:GetChildren()) do
 if m.ClassName == "Tool" then
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait()
 if grabtools == false then break; end
