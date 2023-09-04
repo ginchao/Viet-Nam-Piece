@@ -168,7 +168,7 @@ v:FireServer()
 end
 end
 end)
-drops:Button("Grabtools Any Tool Drop",false, function(l)
+drops:Toggle("Grabtools Any Tool Drop",false, function(l)
 getgenv().grabtools = l
 spawn(function()
 while grabtools do wait()
