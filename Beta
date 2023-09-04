@@ -176,7 +176,7 @@ pcall(function()
 while grabtools do wait()
 spawn(function()
 for i, m in pairs(game.Workspace:GetChildren()) do
-if m.ClassName == "Tool" and m:FindFirstChild("Tool") then
+if m.ClassName == "Tool" and m:FindFirstChild("Handle") then
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait()
 if grabtools == false then break; end
 end
