@@ -187,6 +187,29 @@ end)
 end
 end)
 end)
+drops:Label("Càng Nhiều Người Trong Sever Sức Công Phá Càng Mạnh")
+drops:Toggle("Super Ultra DAMGE Fast actack",false, function(v)
+getgenv().auto = v
+spawn(function()
+while auto do wait()
+spawn(function()
+for i, c in pairs(game.Players:GetChildren()) do
+if c.ClassName == "Player" then
+for i, f in pairs(c:GetChildren()) do
+if f:IsA("Backpack") then
+for i, a in pairs(f:GetDescendants()) do
+if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
+a:FireServer()
+end
+end
+end
+end
+end
+end
+end)
+end
+end)
+end)
 local drops = serv:Channel("Player")
 local plrlist = {}
 local plr = nil
