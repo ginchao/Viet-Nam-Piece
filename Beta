@@ -163,7 +163,7 @@ drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
 end)
 drops:Button("Super Ultra Skill", function()
 for i,v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "RemoteEvent" then
+if v:IsA("RemoteEvent") and v.Name == "Fire" then
 v:FireServer()
 end
 end
