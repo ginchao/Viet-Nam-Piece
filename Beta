@@ -180,49 +180,6 @@ end)
 end
 end)
 end)
-drops:Label("Need Player In Your Sever")
-drops:Toggle("Super Ultra Copy DAMGE actack",false, function(v)
-getgenv().auto = v
-spawn(function()
-while auto do wait()
-spawn(function()
-for i, c in pairs(game.Players:GetChildren()) do
-if c.ClassName == "Player" then
-for i, f in pairs(c:GetChildren()) do
-if f:IsA("Backpack") then
-for i, a in pairs(f:GetDescendants()) do
-if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
-a:FireServer()
-end
-end
-end
-end
-end
-end
-end)
-end
-end)
-end)
-drops:Toggle("Auto Copy Armor",false, function(o)
-getgenv().autobuffhp = true
-pcall(function()
-while autobuffhp do wait()
-for i, v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
-v:FireServer()
-if autobuffhp == false then break; end
-end
-end
-end
-end)
-end)
-drops:Button("Super Ultra Copy Skill", function()
-for i,v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" then
-v:FireServer()
-end
-end
-end)
 local drops = serv:Channel("Player")
 local plrlist = {}
 local plr = nil
@@ -244,7 +201,7 @@ while wait() do
 if AutoBr then
 pcall(function()
  game.Workspace[plr].HumanoidRootPart.CFrame = 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -4)
 end)
 end
 end
@@ -256,7 +213,8 @@ while autobr == true do wait()
 spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
 if v:FindFirstChild("HumanoidRootPart") then 
-v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0) wait()
+v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 5
+, 0) wait()
 if autobr == false then break end
 end
 end
@@ -276,6 +234,49 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr]
 end)
 end
 end)
+end)
+drops:Label("Need Player In Your Sever")
+drops:Toggle("Super Ultra DAMGE Attack",false, function(v)
+getgenv().auto = v
+spawn(function()
+while auto do wait()
+spawn(function()
+for i, c in pairs(game.Players:GetChildren()) do
+if c.ClassName == "Player" then
+for i, f in pairs(c:GetChildren()) do
+if f:IsA("Backpack") then
+for i, a in pairs(f:GetDescendants()) do
+if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
+a:FireServer() wait(0.3)
+end
+end
+end
+end
+end
+end
+end)
+end
+end)
+end)
+drops:Toggle("Auto Armor",false, function(o)
+getgenv().autobuffhp = true
+pcall(function()
+while autobuffhp do wait()
+for i, v in pairs(game.Players:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
+v:FireServer()
+if autobuffhp == false then break; end
+end
+end
+end
+end)
+end)
+drops:Button("Super Ultra Skill", function()
+for i,v in pairs(game.Players:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name == "Fire" then
+v:FireServer()
+end
+end
 end)
 local btns = serv:Channel("Island")
 
