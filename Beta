@@ -247,7 +247,7 @@ for i, f in pairs(c:GetChildren()) do
 if f:IsA("Backpack") then
 for i, a in pairs(f:GetDescendants()) do
 if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
-a:FireServer() wait(0.1)
+a:FireServer() wait()
 end
 end
 end
@@ -260,7 +260,6 @@ end)
 end)
 drops:Toggle("Auto Armor",false, function(o)
 getgenv().autobuffhp = true
-pcall(function()
 while autobuffhp do wait()
 for i, v in pairs(game.Players:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
@@ -269,7 +268,6 @@ if autobuffhp == false then break; end
 end
 end
 end
-end)
 end)
 drops:Button("Super Ultra Skill", function()
 for i,v in pairs(game.Players:GetDescendants()) do
