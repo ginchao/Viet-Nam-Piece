@@ -161,13 +161,6 @@ drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
 		end
 	end)
 end)
-drops:Button("Super Ultra Skill", function()
-for i,v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" then
-v:FireServer()
-end
-end
-end)
 drops:Toggle("Grab Any Tool Drop",false, function(l)
 getgenv().grabtools = l
 spawn(function()
@@ -187,8 +180,8 @@ end)
 end
 end)
 end)
-drops:Label("Càng Nhiều Người Trong Sever Sức Công Phá Càng Mạnh")
-drops:Toggle("Super Ultra DAMGE Fast actack",false, function(v)
+drops:Label("Need Player In Your Sever")
+drops:Toggle("Super Ultra Copy DAMGE actack",false, function(v)
 getgenv().auto = v
 spawn(function()
 while auto do wait()
@@ -209,6 +202,25 @@ end
 end)
 end
 end)
+end)
+drops:Toggle("Auto Copy Armor",false, function(o)
+getgenv().autobuffhp = true
+pcall(function()
+while autobuffhp do wait()
+for i, v in pairs(game.Players:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
+v:FireServer()
+end
+end
+end
+end)
+end)
+drops:Button("Super Ultra Copy Skill", function()
+for i,v in pairs(game.Players:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name == "Fire" then
+v:FireServer()
+end
+end
 end)
 local drops = serv:Channel("Player")
 local plrlist = {}
