@@ -155,7 +155,7 @@ drops:Toggle("Choose Weapon To Super Fast Actack",false, function(v)
 	getgenv().e = v
 	spawn(function()
 		while e == true do
-			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer()
+			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
 			wait()
 		end
 	end)
@@ -164,8 +164,8 @@ drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
 	getgenv().e = v
 	spawn(function()
 		while e == true do
-			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer()
-			wait(0.3)
+			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
+			wait(0.2)
 		end
 	end)
 end)
@@ -263,7 +263,7 @@ for i, f in pairs(c:GetChildren()) do
 if f:IsA("Backpack") then
 for i, a in pairs(f:GetDescendants()) do
 if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
-a:FireServer() wait()
+a:FireServer(1, 0) wait()
 end
 end
 end
@@ -275,7 +275,7 @@ end
 end)
 end)
 drops:Toggle("Auto Armor",false, function(o)
-getgenv().autobuffhp = true
+getgenv().autobuffhp = 0
 while autobuffhp do wait()
 for i, v in pairs(game.Players:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
