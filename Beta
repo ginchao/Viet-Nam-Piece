@@ -33,7 +33,7 @@ spawn(function()
 end)
 end)
 drops:Toggle("Auto Quest Tango",false, function(v)
-getgenv().AutoQuest
+getgenv().AutoQuest = v
 spawn(function()
 while AutoQuest==true do wait()
 pcall(function()
