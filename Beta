@@ -3,7 +3,7 @@ local win = DiscordLib:Window("Test Hub")
 local serv = win:Server("VietNam Piece Beta", "")
 local drops = serv:Channel("Mob")
 drops:Toggle("Auto Bring NickBeo",false, function(v)
-	getgenv().autobring = v
+getgenv().autobring = v
 spawn(function()
 while autobring == true do
 game:GetService("Workspace")["NPC DAMAGE"].NickBeo.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
@@ -11,7 +11,7 @@ wait()
 end
 end)
 end)
-drops:Toggle("Auto Quest NickBeo",LocalPlayer, function(v)
+drops:Toggle("Auto Quest NickBeo",false, function(v)
 getgenv().AutoQuest = v
 spawn(function()
 while AutoQuest==true do wait()
