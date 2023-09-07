@@ -86,33 +86,13 @@ drops:Toggle("Auto Bring Kaido",false, function(v)
 		wait(0.2)
 	end
 end)
-drops:Toggle("Auto Click Quest Kaido",LocalPlayer, function(v)
-	local plr = game.Players.LocalPlayer
-	local char = plr.Character or plr.Character:AddedWait()
-	local hrp = char.HumanoidRootPart
-	getgenv().AutoQuest = v
-
-	function ClickButton(v)
-		v.BackgroundTransparency = 1
-		v.Size = UDim2.new(100, 100, 100, 100)
-		v.Position = UDim2.new(-1, 0, -5, 0)
-		wait(.2)
-		game:GetService("VirtualUser"):ClickButton1(Vector2.new(50, 50))
-	end
-
-	spawn(function()
-		while AutoQuest==true do wait()
-			fireclickdetector(workspace["KAIDO ISLANDDDDDDDD"]["KAIDOUU QUESTTT"].ClickPart.ClickDetector) 
-			wait(0.5)
-		end
-	end)
-	spawn(function()
-		while AutoQuest==true do wait()
-			if plr.PlayerGui:FindFirstChild("QuestTake") then
-				ClickButton(plr.PlayerGui.QuestTake.Accept1)
-			end
-		end
-	end)
+drops:Toggle("Auto Click Quest Kaido",false, function(v)
+getgenv().autoquest = v
+spawn(function()
+while autoquest do wait()
+game.Workspace["KAIDO ISLANDDDDDDDD"]["KAIDOUU QUESTTT"].ClickPart.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer() wait()
+end
+end)
 end)
 
 drops:Label("Script được cãi tiến bởi itsjustTri25")
