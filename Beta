@@ -131,6 +131,14 @@ if m == k.Name then
 end
 end
 end)
+drops:Button("Refresh Weapon", function()
+drop:Clear()
+for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v:IsA("Tool") then
+drop:Add(v.Name)
+end
+end
+end)
 drops:Toggle("Auto Equip",false, function(a)
 	AutoEquiped = a
 end)
@@ -190,6 +198,14 @@ local drop = drops:Dropdown("Choose Player", plrlist, function(m)
 for i, b in pairs(game:GetService("Workspace"):GetChildren()) do
 if m == b.name then
 plr = m
+end
+end
+end)
+drops:Button("Refresh Player", function()
+drop:Clear()
+for i, v in pairs(game.Players:GetChildren()) do
+if v:IsA("Player") then
+drop:Add(v.Name)
 end
 end
 end)
