@@ -226,11 +226,9 @@ drops(Toggle(" Auto Tween Bring Player", false, function(p)
 getgenv().autobri = p
 spawn(function()
 while autobri do wait()
-pcall(function()
 local ok = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-local tween = game.TweenService:Create(game.Workspace[plr].HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)})
+local tween = game.TweenService:Create(game.Workspace[plr].HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)}) wait()
 tween:Play()
-end)
 end
 end)
 end)
@@ -240,7 +238,8 @@ spawn(function()
 while autobr == true do wait()
 spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
-if v:FindFirstChild("HumanoidRootPart") then  CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+if v:FindFirstChild("HumanoidRootPart") then 
+local ok = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 local tween = game.TweenService:Create(v.HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)})
 tween:Play() wait()
 if autobr == false then break end
