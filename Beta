@@ -429,7 +429,7 @@ btns:Button("WallSky", function()
  loc = Char.HumanoidRootPart.Position 
  Char:MoveTo(box.Position + Vector3.new(0,.5,0)) 
  end) 
- btn:Button("Fast Mode", function() 
+ btns:Button("Fast Mode", function() 
  local ToDisable = { 
          Textures = true, 
          VisualEffects = true, 
@@ -502,7 +502,7 @@ btns:Button("WallSky", function()
  end 
  end)
 btns:Label("Script")
- tgls:Button("Tele Tool", function()  
+ btns:Button("Tele Tool", function()  
   mouse = game.Players.LocalPlayer:GetMouse()  
   tool = Instance.new("Tool")  
   tool.RequiresHandle = false  
