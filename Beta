@@ -106,7 +106,8 @@ spawn(function()
 		end
 	end
 end)
-drops:Toggle("Choose Weapon To Super Fast Actack",false, function(v)
+drops:Toggle("Choose Weapon To x3 Fast Actack",false, function(v)
+for _ = 1, 3
 	getgenv().e = v
 	spawn(function()
 		while e == true do
@@ -114,6 +115,7 @@ drops:Toggle("Choose Weapon To Super Fast Actack",false, function(v)
 			wait()
 		end
 	end)
+end
 end)
 drops:Toggle("Choose Weapon To X250 Actack",false, function(v)
 for _ = 1,250 do
