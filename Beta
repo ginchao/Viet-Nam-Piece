@@ -121,7 +121,7 @@ for _ = 1,250 do
 	spawn(function()
 		while e == true do
 			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait(0.5)
+			wait(0.7)
 		end
 	end)
 end
@@ -132,7 +132,7 @@ for _ = 1,40 do
 	spawn(function()
 		while e == true do
 			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait(0.2)
+			wait(0.4)
 		end
 	end)
 end
@@ -198,7 +198,7 @@ while wait() do
 if AutoBr then
 pcall(function()
  game.Workspace[plr].HumanoidRootPart.CFrame = 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3)
 end)
 end
 end
