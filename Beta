@@ -198,8 +198,12 @@ spawn(function()
 while wait() do
 if AutoBr then
 pcall(function()
+while wait() do
+spawn(function()
  game.Workspace[plr].HumanoidRootPart.CFrame = 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
+end)
+end
 end)
 end
 end
