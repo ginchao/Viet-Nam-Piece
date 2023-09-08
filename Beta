@@ -196,10 +196,10 @@ getgenv().AutoBr = a
 spawn(function()
 while AutoBr do wait()
 pcall(function()
-while AutoBr==true do
+while AutoBr==true do wait()
 spawn(function()
  game.Workspace[plr].HumanoidRootPart.CFrame = 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5) wait()
 end)
 end
 end)
