@@ -86,7 +86,6 @@ end
 end
 end
 end)
-end
 drops:Button("Refresh Weapon", function()
 drop:Clear()
 for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
