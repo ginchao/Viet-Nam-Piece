@@ -80,11 +80,10 @@ local drop = drops:Dropdown("Pick", Weaponlist, function(m)
 for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 if m == k.Name then
 	Weapon = m
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
 end
 end
 end)
-if m == k.Name then
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
 end
 drops:Button("Refresh Weapon", function()
 drop:Clear()
