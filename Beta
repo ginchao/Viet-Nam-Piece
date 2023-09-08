@@ -111,21 +111,32 @@ for _ = 1,10 do
 	getgenv().e = v
 	spawn(function()
 		while e == true do
-			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
+		pcall(function()
+while wait() do
+pcall(function()	game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
 			wait()
-		end
-	end)
+end)
+end
+end)
+end
+end)
 end
 end)
 drops:Toggle("Choose Weapon To X20 Actack",false, function(v)
 for _ = 1,20 do
-	getgenv().e = v
-	spawn(function()
-		while e == true do
+getgenv().e = v
+spawn(function()
+while e == true do
+pcall(function()
+while wait() đó
+spawn(function()
 			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
 			wait(0.1)
-		end
-	end)
+end)
+end
+end)
+end
+end)
 end
 end)
 drops:Toggle("Grab Any Tool Drop",false, function(l)
