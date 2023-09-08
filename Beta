@@ -202,7 +202,7 @@ getgenv().autotele = t
 spawn(function()
 while autotele do wait()
 pcall(function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame * CFrame.new(0, 0, -6) wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame * CFrame.new(0, 0, 6) wait()
 end)
 end
 end)
