@@ -112,7 +112,7 @@ getgenv().e = v
 spawn(function()
 while e == true do
 pcall(function()
-while wait() do
+while e do wait()
 pcall(function()	game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
 wait()
 end)
@@ -128,7 +128,7 @@ getgenv().e = v
 spawn(function()
 while e == true do
 pcall(function()
-while wait() do
+while e do wait()
 spawn(function()	game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
 wait(0.1)
 end)
