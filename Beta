@@ -194,10 +194,10 @@ drop:Add(v.Name)
 end
 end
 end)
-drops:Button("Teleport Player", function()
+drops:Button("Teleport To Player", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
 end)
-drops:Toggle("Auto Teleport",false, function(t)
+drops:Toggle("Auto Teleport Player",false, function(t)
 getgenv().autotele = t
 spawn(function()
 while autotele do wait()
@@ -222,15 +222,27 @@ end)
 end
 end)
 end)
+drops(Toggle(" Auto Tween Bring Player", false, function(p)
+getgenv().autobri = p
+spawn(function()
+while autobri do wait()
+pcall(function()
+local ok = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+local tween = game.TweenService:Create(game.Workspace[plr].HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)})
+tween:Play()
+end)
+end
+end)
+end)
 drops:Toggle("Auto Bring All Player",false, function(t)
 getgenv().autobr = t
 spawn(function()
 while autobr == true do wait()
 spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
-if v:FindFirstChild("HumanoidRootPart") then 
-v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0
-, 0) wait()
+if v:FindFirstChild("HumanoidRootPart") then  CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+local tween = game.TweenService:Create(v.HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)})
+tween:Play() wait()
 if autobr == false then break end
 end
 end
