@@ -239,9 +239,7 @@ while autobr == true do wait()
 spawn(function()
 for i, v in pairs(game.Workspace:GetChildren()) do
 if v:FindFirstChild("HumanoidRootPart") then 
-local ok = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-local tween = game.TweenService:Create(v.HumanoidRootPart, TweenInfo.new(), {CFrame = ok * CFrame.new(0, 5, 0)})
-tween:Play() wait()
+v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 if autobr == false then break end
 end
 end
