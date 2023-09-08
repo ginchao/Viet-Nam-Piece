@@ -222,7 +222,7 @@ end)
 end
 end)
 end)
-drops(Toggle(" Auto Tween Bring Player", false, function(p)
+drops(Toggle("Auto Tween Bring Player",false, function(p)
 getgenv().autobri = p
 spawn(function()
 while autobri do wait()
