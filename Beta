@@ -112,14 +112,16 @@ drops:Toggle("Choose Weapon To Super Fast Actack",false, function(v)
 		end
 	end)
 end)
-drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
+drops:Toggle("Choose Weapon To X250 Actack",false, function(v)
+for _ = 1,250 do
 	getgenv().e = v
 	spawn(function()
 		while e == true do
 			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait(0.2)
+			wait(0.5)
 		end
 	end)
+end
 end)
 drops:Toggle("Grab Any Tool Drop",false, function(l)
 getgenv().grabtools = l
