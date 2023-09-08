@@ -342,7 +342,7 @@ btns:Button("WallSky", function()
  box = Instance.new('Part',workspace) 
  box.Anchored = true 
  box.CanCollide = true 
- box.Size = Vector3.new(100,10,100) 
+ box.Size = Vector3.new(10000,3,10000) 
  box.Position = Vector3.new(0,10000,0) 
  box.Touched:connect(function(part) 
      if (part.Parent.Name == Local.Name) then 
@@ -438,4 +438,20 @@ btns:Button("WallSky", function()
      Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255) 
      Lighting.Outlines = true 
  end 
+ end)
+btns:Label("Script")
+btns:Button("Anti Afk", function() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ginchao/Anti-AFK/main/NO%20KICK" ,true))() 
+ end) 
+ btns:Button("Keyboard", function() 
+  
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))() 
+     end)          
+ btns:Button("FlyV3", function() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+        end) 
+  
+ btns:Button("Shift Lock", function() 
+  
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))() 
  end)
