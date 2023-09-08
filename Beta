@@ -108,13 +108,13 @@ spawn(function()
 end)
 drops:Toggle("Choose Weapon To x10 Fast Actack",false, function(v)
 for _ = 1,10 do
-	getgenv().e = v
-	spawn(function()
-		while e == true do
-		pcall(function()
+getgenv().e = v
+spawn(function()
+while e == true do
+pcall(function()
 while wait() do
 pcall(function()	game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait()
+wait()
 end)
 end
 end)
@@ -128,10 +128,9 @@ getgenv().e = v
 spawn(function()
 while e == true do
 pcall(function()
-while wait() đó
-spawn(function()
-			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait(0.1)
+while wait() do
+spawn(function()	game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
+wait(0.1)
 end)
 end
 end)
