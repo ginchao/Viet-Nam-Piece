@@ -215,7 +215,7 @@ for i, f in pairs(c:GetChildren()) do
 if f:IsA("Backpack") then
 for i, a in pairs(f:GetDescendants()) do
 if a:IsA("RemoteEvent") and a.Name == "Hitbox" then
-a:FireServer(1, 0) wait()
+a:FireServer(1, 0)
 end
 end
 end
