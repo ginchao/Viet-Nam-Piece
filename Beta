@@ -132,7 +132,7 @@ for _ = 1,40 do
 	spawn(function()
 		while e == true do
 			game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 0)
-			wait(0.5)
+			wait(0.2)
 		end
 	end)
 end
