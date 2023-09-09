@@ -197,6 +197,15 @@ end)
 drops:Button("Teleport To Player", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
 end)
+drops:Button("Choose Player To Super Ultra Skill", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
+wait(0.1)
+for i,v in pairs(game:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name == "Fire" then
+v:FireServer()
+end
+end
+end)
 drops:Toggle("Auto Teleport Player",false, function(t)
 getgenv().autotele = t
 spawn(function()
@@ -287,9 +296,7 @@ end
 end
 end
 end)
-drops:Button("Choose Player To Super Ultra Skill", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
-wait(0.1)
+drops:Button("Super Ultra Skill", function()
 for i,v in pairs(game:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "Fire" then
 v:FireServer()
