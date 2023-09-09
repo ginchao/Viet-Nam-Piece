@@ -4,7 +4,7 @@ elseif game.PlaceId==7258239416 then
 
 local DiscordLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Discord-Lib/main/Discord-Lib'))()
 local win = DiscordLib:Window("Test Hub")
-local serv = win:Server("VietNam Piece Beta Second Sea", "")
+local serv = win:Server("VietNamPiece Pvp Second Sea", "")
 local drops = serv:Channel("Mob")
 drops:Toggle("Auto Bring NickBeo",false, function(v)
 getgenv().autobring = v
@@ -391,19 +391,19 @@ local btns = serv:Channel("Island")
 
 btns:Button("Kaido Island lv 2000", function()
 	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-	rootPart.CFrame = CFrame.new(-708.903564, 87687.7266, 809.050476, 0.312079072, -9.11389222e-08, 0.950056136, -5.59602764e-09, 1, 9.77682433e-08, -0.950056136, -3.58279628e-08, 0.312079072)
+	rootPart.CFrame = CFrame.new(-708.903564, 87687.7266, 809.050476, 0.312079072, -9.11389222e-08, 0.950056136, -5.59602764e-09, 1, 9.77682433e-08, -0.950056136, -3.58279628e-08, 0.312079072)*CFrame.new(0, 7, 0)
 end)
 btns:Button("Nickbeo Island lv 7000+", function()
 	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-	rootPart.CFrame = CFrame.new(-1622.85156, 87698.5469, 622.421936, -0.0521310531, -0, -0.998640239, -0, 1, -0, 0.998640239, 0, -0.0521310531)
+	rootPart.CFrame = CFrame.new(-1622.85156, 87698.5469, 622.421936, -0.0521310531, -0, -0.998640239, -0, 1, -0, 0.998640239, 0, -0.0521310531)*CFrame.new(0, 7, 0)
 end)
 btns:Button("Marine Island lv 3000+", function()
 	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-	rootPart.CFrame = CFrame.new(-152.420593, 87740.3125, -2115.33057, -0.995318413, 0, 0.0966506973, 0, 1, -0, -0.0966507122, 0, -0.995318294)
+	rootPart.CFrame = CFrame.new(-152.420593, 87740.3125, -2115.33057, -0.995318413, 0, 0.0966506973, 0, 1, -0, -0.0966507122, 0, -0.995318294)*CFrame.new(0, 7, 0)
 end)
 btns:Button("Platinum Town lv 2000+", function()
 	local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-	rootPart.CFrame = CFrame.new(-1280.56299, 87693.3281, 3242.69702, -0.0239899773, -0, -0.999712229, -0, 1, -0, 0.999712229, 0, -0.0239899773)
+	rootPart.CFrame = CFrame.new(-1280.56299, 87693.3281, 3242.69702, -0.0239899773, -0, -0.999712229, -0, 1, -0, 0.999712229, 0, -0.0239899773)*CFrame.new(0, 7, 0)
 end)
 local btns = serv:Channel("Island")
 btns:Toggle("AutoClickGodBox",false, function(e)
@@ -436,8 +436,8 @@ btns:Button("WallSky", function()
  box = Instance.new('Part',workspace) 
  box.Anchored = true 
  box.CanCollide = true 
- box.Size = Vector3.new(10000,3,10000) 
- box.Position = Vector3.new(0,10000,0) 
+ box.Size = Vector3.new(1000,2,1000) 
+ box.Position = Vector3.new(10,4000,10) 
  box.Touched:connect(function(part) 
      if (part.Parent.Name == Local.Name) then 
          if touched == false then 
