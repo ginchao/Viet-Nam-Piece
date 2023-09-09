@@ -1,3 +1,7 @@
+if game.PlaceId== then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Viet-Nam-Piece-1/main/Beta1'))()
+end
+
 local DiscordLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Discord-Lib/main/Discord-Lib'))()
 local win = DiscordLib:Window("Test Hub")
 local serv = win:Server("VietNam Piece Beta Second Sea", "")
