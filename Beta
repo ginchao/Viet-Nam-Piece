@@ -413,7 +413,7 @@ btns:Toggle("AutoClickGodBox",false, function(e)
 	end
 end)
 btns:Label("More")
-btns:Button("WallSky", function()
+btns:Button("Mics", function()
   
  Local = game:GetService('Players').LocalPlayer 
  Char  = Local.Character 
@@ -534,6 +534,9 @@ btns:Button("WallSky", function()
  end 
  end)
 btns:Label("Script")
+btns:Button("Lucky Block Battleground", function() 
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/LuckyBlockBattleground/main/HttVeg'))() 
+ end)
  btns:Button("Tele Tool", function()  
   mouse = game.Players.LocalPlayer:GetMouse()  
   tool = Instance.new("Tool")  
