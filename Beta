@@ -287,9 +287,18 @@ end
 end
 end
 end)
-drops:Button("Super Ultra Skill", function()
+drops:Button("Choose Player To Super Ultra Skill", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
+wait(0.1)
 for i,v in pairs(game:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "Fire" then
+v:FireServer()
+end
+end
+end)
+drops:Button("Super Ultra Inf Legendary Skill Attack", function() 
+for i, v in pairs(game:GetDescendants()) do
+if v:IsA("RemoteEvent") and v.Name ~= "Eat" then
 v:FireServer()
 end
 end
