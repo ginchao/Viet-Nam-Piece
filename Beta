@@ -288,7 +288,7 @@ end
 end
 end)
 drops:Button("Super Ultra Skill", function()
-for i,v in pairs(game.Players:GetDescendants()) do
+for i,v in pairs(game:GetDescendants()) do
 if v:IsA("RemoteEvent") and v.Name == "Fire" then
 v:FireServer()
 end
