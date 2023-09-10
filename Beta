@@ -107,7 +107,7 @@ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("
 wait()
 end
 end)
-btns:Label("Buy") 
+tgls:Label("Buy") 
 tgls:Toggle("AutoClickGodBox",false, function(e)
 for _ = 1,5 do
 	getgenv().AutoClickGodBox = e
