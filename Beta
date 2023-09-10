@@ -558,6 +558,6 @@ end)
 end) 
  btns:Button("Shift Lock", function()         loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))() 
  end)
-elseif not game.PlaceId==nill then
+elseif game.PlaceId~=7258239416 or game.PlaceId~=4587545091 then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Viet-Nam-Piece/main/Beta'))() 
 end
