@@ -7,77 +7,77 @@ local DiscordLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/gi
 local win = DiscordLib:Window("Test Hub")
 local serv = win:Server("VietNamPiece Pvp 2", "")
 local drops = serv:Channel("Mob")
-drops:Toggle("Auto Bring NickBeo",false, function(v)
-getgenv().autobring = v
-spawn(function()
-while autobring == true do
-game:GetService("Workspace")["NPC DAMAGE"].NickBeo.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
-wait()
-end
-end)
-end)
-drops:Toggle("Auto Quest NickBeo",false, function(v)
-for_ = 1,4 do
-getgenv().AutoQuest = v
-spawn(function()
-while AutoQuest==true do wait()
-pcall(function()
-game:GetService("Workspace")["NickBeo Island"]["Quest NickBeo"].Quest.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer()
-end)
-end
-end)
-end
-end)
-drops:Seperator()
-drops:Toggle("Auto Bring Tango",false, function(v)
-	getgenv().autobring = v
-spawn(function()
-	while autobring == true do
-		game:GetService("Workspace")["NPC DAMAGE"].Tango.HumanoidRootPart.CFrame
-			= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
-		wait()
-	end
-end)
-end)
-drops:Toggle("Auto Quest Tango",false, function(v)
-for_ = 1,4 do
-getgenv().AutoQuest = v
-spawn(function()
-while AutoQuest==true do wait()
-pcall(function()
-game:GetService("Workspace")["NickBeo Island"]["Quest Tango"].Quest.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer()
-wait()
-end)
-end
-end)
-end
-end)
-	
-drops:Seperator()
-drops:Toggle("Auto Bring Kaido",false, function(v)
-	getgenv().autobring = v
-spawn(function()
-	while autobring == true do
-		game:GetService("Workspace")["NPC DAMAGE"].Kaidou.HumanoidRootPart.CFrame
-			= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -6)
-		
-		wait()
-	end
-end)
-end)
-drops:Toggle("Auto Quest Kaido",false, function(v)
-for_ = 1,5 do
-getgenv().autoquest = v
-spawn(function()
-while autoquest do wait()
-pcall(function()
-game.Workspace["KAIDO ISLANDDDDDDDD"]["KAIDOUU QUESTTT"].ClickPart.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer() wait()
-end)
-end
-end)
-end
-end)
-
+drops:Toggle("Auto Bring NickBeo",false, function(v) 
+ getgenv().autobring = v 
+ spawn(function() 
+ while autobring == true do 
+ game:GetService("Workspace")["NPC DAMAGE"].NickBeo.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5) 
+ wait() 
+ end 
+ end) 
+ end) 
+ drops:Toggle("Auto Quest NickBeo",false, function(v) 
+ for _ = 1,4 do 
+ getgenv().AutoQuest = v 
+ spawn(function() 
+ while AutoQuest==true do wait() 
+ pcall(function() 
+ game:GetService("Workspace")["NickBeo Island"]["Quest NickBeo"].Quest.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer() 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ drops:Seperator() 
+ drops:Toggle("Auto Bring Tango",false, function(v) 
+         getgenv().autobring = v 
+ spawn(function() 
+         while autobring == true do 
+                 game:GetService("Workspace")["NPC DAMAGE"].Tango.HumanoidRootPart.CFrame 
+                         = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5) 
+                 wait() 
+         end 
+ end) 
+ end) 
+ drops:Toggle("Auto Quest Tango",false, function(v) 
+ for _ = 1,4 do 
+ getgenv().AutoQuest = v 
+ spawn(function() 
+ while AutoQuest==true do wait() 
+ pcall(function() 
+ game:GetService("Workspace")["NickBeo Island"]["Quest Tango"].Quest.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer() 
+ wait() 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+  
+ drops:Seperator() 
+ drops:Toggle("Auto Bring Kaido",false, function(v) 
+         getgenv().autobring = v 
+ spawn(function() 
+         while autobring == true do 
+                 game:GetService("Workspace")["NPC DAMAGE"].Kaidou.HumanoidRootPart.CFrame 
+                         = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -6) 
+  
+                 wait() 
+         end 
+ end) 
+ end) 
+ drops:Toggle("Auto Quest Kaido",false, function(v) 
+ for _ = 1,5 do 
+ getgenv().autoquest = v 
+ spawn(function() 
+ while autoquest do wait() 
+ pcall(function() 
+ game.Workspace["KAIDO ISLANDDDDDDDD"]["KAIDOUU QUESTTT"].ClickPart.QuestTake.QuestTake.Accept1.RemoteEvent:FireServer() wait() 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+  
 drops:Label("Auto Quest Đã Được Tối Ưu")
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
@@ -412,6 +412,30 @@ btns:Toggle("AutoClickGodBox",false, function(e)
 	while AutoClickGodBox == true do wait()
 		fireclickdetector(game:GetService("Workspace")["Platinum Town [ 2000 - 3000 ]"].PlatinumMAP.GodBox.ClickDetector)
 	end
+end)
+btns:Toggle("Auto Buy Lucky Fruit",false, function(b)
+for _ = 1,3 do
+getgenv().auto = b
+spawn(function()
+while auto do wait()
+pcall(function()
+fireclickdetector(game:GetService("Workspace")["STARTER ISLAND [ Lv 1+ ]"].Shop[" "].RANDOM) wait()
+end)
+end
+end)
+end
+end)
+btns:Toggle("Auto Random Secret Fruit",false, function(v)
+for _ = 1,3 do
+getgenv().auto = v
+spawn(function()
+while auto do wait()
+pcall(function()
+fireclickdetector(game:GetService("Workspace")["STARTER ISLAND [ Lv 1+ ]"]["Secret Random"].RANDOM) wait()
+end)
+end
+end)
+end
 end)
 btns:Label("More")
 btns:Button("WallSky", function()
