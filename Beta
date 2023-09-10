@@ -77,37 +77,163 @@ drops:Toggle("Auto Bring NickBeo",false, function(v)
  end) 
  end 
  end) 
-  
 drops:Label("Auto Quest Đã Được Tối Ưu")
-local tgls = serv:Channel("Stats") 
- tgls:Toggle("Auto Sword",false, function(v) 
- getgenv().autostats = v 
- while autostats==true do wait() 
- game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Sword") 
- wait() 
+local tgls = serv:Channel("Stats")
+tgls:Toggle("Auto Sword",false, function(z)
+getgenv().autostats = z
+while autostats do wait()
+game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Sword")
+wait()
+end
+end)
+tgls:Toggle("Auto Fruit",false, function(z)
+getgenv().autostats = z
+while autostats do wait()
+game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("DevilFruit")
+wait()
+end
+end)
+tgls:Toggle("Auto Health",false, function(z)
+getgenv().autostats = z
+while autostats do wait()
+game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("MaxHealth")
+wait()
+end
+end)
+tgls:Toggle("Auto Melee",false, function(z)
+getgenv().autostats = z
+while autostats==true do wait()
+game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Melee")
+wait()
+end
+end)
+
+ local drops = serv:Channel("Weapon") 
+ local Weaponlist = {} 
+ local Weapon = nil 
+ for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do 
+ if v:IsA("Tool") then 
+         table.insert(Weaponlist,v.Name) 
+ end 
+ end 
+ local drop = drops:Dropdown("Pick", Weaponlist, function(m) 
+ for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+ if m == k.Name then 
+         Weapon = m 
+ if Weapon then 
+ game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon)) 
+ end 
+ end 
  end 
  end) 
- tgls:Toggle("Auto Fruit",false, function(v) 
- getgenv().autostats = v 
- while autostats==true do wait() 
- game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("DevilFruit") 
- wait() 
+ drops:Button("Refresh Weapon", function() 
+ drop:Clear() 
+ for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+ if v:IsA("Tool") then 
+ drop:Add(v.Name) 
+ end 
  end 
  end) 
- tgls:Toggle("Auto Health",false, function(v) 
- getgenv().autostats = v 
- while autostats==true do wait() 
- game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("MaxHealth") 
- wait() 
+ drops:Toggle("Auto Equip",false, function(a) 
+         AutoEquiped = a 
+ end) 
+ spawn(function() 
+         while wait() do 
+                 if AutoEquiped then 
+                         pcall(function() 
+                                 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon)) 
+                         end) 
+                 end 
+         end 
+ end) 
+drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
+ getgenv().e = v 
+ spawn(function() 
+ while e == true do 
+ pcall(function() 
+ while e do wait()  game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
+ wait(0.11) 
  end 
  end) 
- tgls:Toggle("Auto Melee",false, function(v) 
- getgenv().autostats = v 
- while autostats==true do wait() 
- game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Melee") 
- wait() 
  end 
  end)
+ end) 
+ drops:Toggle("Choose Weapon To x5 Fast Actack",false, function(v) 
+ for _ = 1,5 do 
+ getgenv().e = v 
+ spawn(function() 
+ while e == true do 
+ pcall(function() 
+ while e do wait() 
+ pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
+ wait(0.11) 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ drops:Toggle("Choose Weapon To x10 Fast Actack",false, function(v) 
+ for _ = 1,10 do 
+ getgenv().e = v 
+ spawn(function() 
+ while e == true do 
+ pcall(function() 
+ while e do wait() 
+ pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
+ wait(0.1) 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ drops:Toggle("Choose Weapon To X20 Actack",false, function(v) 
+ for _ = 1,20 do 
+ getgenv().e = v 
+ spawn(function() 
+ while e == true do 
+ pcall(function() 
+ while e do wait() 
+ spawn(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
+ wait(0.1) 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ end 
+ end) 
+ drops:Toggle("Grab Any Tool Drop",false, function(l) 
+ getgenv().grabtools = l 
+ spawn(function() 
+ while grabtools do wait() 
+ pcall(function() 
+ while grabtools do wait() 
+ spawn(function() 
+ for i, m in pairs(game.Workspace:GetChildren()) do 
+ if m.ClassName == "Tool" and m:FindFirstChild("Handle") then  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait() 
+if grabtools == false then break; end 
+end 
+ end 
+ end) 
+ end 
+ end) 
+ end 
+ end)
+spawn(function()
+while wait() do
+if not getgenv().grabtools then break end
+for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+if v:FindFirstChild("ClickDetector") then
+fireclickdetector(v.ClickDetector) wait()
+end
+end
+end
+end)
+ end) 
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
 local Weapon = nil
