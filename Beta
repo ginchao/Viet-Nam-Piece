@@ -419,7 +419,7 @@ getgenv().auto = b
 spawn(function()
 while auto do wait()
 pcall(function()
-fireclickdetector(game:GetService("Workspace")["STARTER ISLAND [ Lv 1+ ]"].Shop[" "].RANDOM) wait()
+fireclickdetector(game:GetService("Workspace")["Marine Island [ 3000 - 5000 ]"][" "].RANDOM)
 end)
 end
 end)
@@ -431,7 +431,7 @@ getgenv().auto = v
 spawn(function()
 while auto do wait()
 pcall(function()
-fireclickdetector(game:GetService("Workspace")["STARTER ISLAND [ Lv 1+ ]"]["Secret Random"].RANDOM) wait()
+fireclickdetector(game:GetService("Workspace")["Marine Island [ 3000 - 5000 ]"]["Secret Random"].RANDOM) wait()
 end)
 end
 end)
