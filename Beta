@@ -107,6 +107,26 @@ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("
 wait()
 end
 end)
+tgls:Toggle("AutoClickGodBox",false, function(e)
+for _ = 1,5 do
+	getgenv().AutoClickGodBox = e
+	while AutoClickGodBox == true do wait()
+		fireclickdetector(game:GetService("Workspace")["Platinum Town [ 2000 - 3000 ]"].PlatinumMAP.GodBox.ClickDetector)
+	end
+end
+end)
+tgls:Toggle("Auto Random Secret Fruit",false, function(v)
+for _ = 1,3 do
+getgenv().auto = v
+spawn(function()
+while auto do wait()
+pcall(function()
+fireclickdetector(game:GetService("Workspace")["Marine Island [ 3000 - 5000 ]"]["Secret Random"].RANDOM) wait()
+end)
+end
+end)
+end
+end)
 
  local drops = serv:Channel("Weapon") 
  local Weaponlist = {} 
@@ -234,132 +254,7 @@ end
 end
 end)
  end) 
-local drops = serv:Channel("Weapon")
-local Weaponlist = {}
-local Weapon = nil
-for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-if v:IsA("Tool") then
-	table.insert(Weaponlist,v.Name)
-end
-end
-local drop = drops:Dropdown("Pick", Weaponlist, function(m)
-for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-if m == k.Name then
-	Weapon = m
-if Weapon then
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
-end
-end
-end
-end)
-drops:Button("Refresh Weapon", function()
-drop:Clear()
-for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-if v:IsA("Tool") then
-drop:Add(v.Name)
-end
-end
-end)
-drops:Toggle("Auto Equip",false, function(a)
-	AutoEquiped = a
-end)
-spawn(function()
-	while wait() do
-		if AutoEquiped then
-			pcall(function()
-				game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
-			end)
-		end
-	end
-end)
-drops:Toggle("Choose Weapon To Fast Actack",false, function(v) 
-  getgenv().e = v  
-  spawn(function()  
-  while e == true do  
-  pcall(function()  
-  while e do wait()  game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
-  wait(0.11)  
-  end  
-  end)  
-  end  
-  end) 
-  end)  
-  drops:Toggle("Choose Weapon To x5 Fast Actack",false, function(v)  
-  for _ = 1,5 do  
-  getgenv().e = v  
-  spawn(function()  
-  while e == true do  
-  pcall(function()  
-  while e do wait()  
-  pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
-  wait(0.11)  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-  drops:Toggle("Choose Weapon To x10 Fast Actack",false, function(v)  
-  for _ = 1,10 do  
-  getgenv().e = v  
-  spawn(function()  
-  while e == true do  
-  pcall(function()  
-  while e do wait()  
-  pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
-  wait(0.1)  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-  drops:Toggle("Choose Weapon To X20 Actack",false, function(v)  
-  for _ = 1,20 do  
-  getgenv().e = v  
-  spawn(function()  
-  while e == true do  
-  pcall(function()  
-  while e do wait()  
-  spawn(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
-  wait(0.1)  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-  end  
-  end)  
-   drops:Toggle("Grab Any Tool Drop",false, function(l)  
-  getgenv().grabtools = l  
-  spawn(function()  
-  while grabtools do wait()  
-  pcall(function()  
-  while grabtools do wait()  
-  spawn(function()  
-  for i, m in pairs(game.Workspace:GetChildren()) do  
-  if m.ClassName == "Tool" and m:FindFirstChild("Handle") then  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait()  
- if grabtools == false then break; end  
- end  
-  end  
-  end)  
-  end  
-  end)  
-  end  
-  end) 
- spawn(function() 
- while wait() do 
- if not getgenv().grabtools then break end 
- for i, v in pairs(game:GetService("Workspace"):GetChildren()) do 
- if v:FindFirstChild("ClickDetector") then 
- fireclickdetector(v.ClickDetector) wait() 
- end 
- end 
- end 
-  end) 
-  end)  
+
   local drops = serv:Channel("Player")  
   local plrlist = {}  
   local plr = nil  
@@ -583,27 +478,6 @@ btns:Button("Platinum Town lv 2000+", function()
 	rootPart.CFrame = CFrame.new(-1280.56299, 87693.3281, 3242.69702, -0.0239899773, -0, -0.999712229, -0, 1, -0, 0.999712229, 0, -0.0239899773)*CFrame.new(0,9, 0)
 end)
 local btns = serv:Channel("Mics")
-btns:Toggle("AutoClickGodBox",false, function(e)
-for _ = 1,5 do
-	getgenv().AutoClickGodBox = e
-	while AutoClickGodBox == true do wait()
-		fireclickdetector(game:GetService("Workspace")["Platinum Town [ 2000 - 3000 ]"].PlatinumMAP.GodBox.ClickDetector)
-	end
-end
-end)
-btns:Toggle("Auto Random Secret Fruit",false, function(v)
-for _ = 1,3 do
-getgenv().auto = v
-spawn(function()
-while auto do wait()
-pcall(function()
-fireclickdetector(game:GetService("Workspace")["Marine Island [ 3000 - 5000 ]"]["Secret Random"].RANDOM) wait()
-end)
-end
-end)
-end
-end)
-btns:Label("More")
 btns:Button("WallSky", function()
   
  Local = game:GetService('Players').LocalPlayer 
