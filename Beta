@@ -358,7 +358,6 @@ drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
  end 
  end 
  end 
- end) 
   end) 
   end)  
   local drops = serv:Channel("Player")  
