@@ -79,6 +79,35 @@ drops:Toggle("Auto Bring NickBeo",false, function(v)
  end) 
   
 drops:Label("Auto Quest Đã Được Tối Ưu")
+local tgls = serv:Channel("Stats") 
+ tgls:Toggle("Auto Sword",false, function(v) 
+ getgenv().autostats = v 
+ while autostats==true do wait() 
+ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Sword") 
+ wait() 
+ end 
+ end) 
+ tgls:Toggle("Auto Fruit",false, function(v) 
+ getgenv().autostats = v 
+ while autostats==true do wait() 
+ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("DevilFruit") 
+ wait() 
+ end 
+ end) 
+ tgls:Toggle("Auto Health",false, function(v) 
+ getgenv().autostats = v 
+ while autostats==true do wait() 
+ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("MaxHealth") 
+ wait() 
+ end 
+ end) 
+ tgls:Toggle("Auto Melee",false, function(v) 
+ getgenv().autostats = v 
+ while autostats==true do wait() 
+ game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Melee") 
+ wait() 
+ end 
+ end)
 local drops = serv:Channel("Weapon")
 local Weaponlist = {}
 local Weapon = nil
