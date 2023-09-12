@@ -129,133 +129,152 @@ end)
 end
 end)
 
- local drops = serv:Channel("Weapon") 
- local Weaponlist = {} 
- local Weapon = nil 
- for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do 
- if v:IsA("Tool") then 
-         table.insert(Weaponlist,v.Name) 
+  local drops = serv:Channel("Weapon")  
+  local Weaponlist = {}  
+  local Weapon = nil  
+  for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
+  if v:IsA("Tool") then  
+          table.insert(Weaponlist,v.Name)  
+  end  
+  end  
+  local drop = drops:Dropdown("Pick", Weaponlist, function(m)  
+  for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+  if m == k.Name then  
+          Weapon = m  
+  if Weapon then  
+  game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))  
+  end  
+  end  
+  end  
+  end)  
+  drops:Button("Refresh Weapon", function()  
+  drop:Clear()  
+  for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+  if v:IsA("Tool") then  
+  drop:Add(v.Name)  
+  end  
+  end  
+  end)  
+  drops:Toggle("Auto Equip",false, function(a) 
+ if Weapon == nill then 
+ DiscordLib:Notification("Warning", "Choose Weapon to AutoEquip", "Ok") 
+ elseif Weapon ~= nil then 
+          AutoEquiped = a  
  end 
+  end)  
+  spawn(function()  
+          while wait() do  
+                  if AutoEquiped then  
+                          pcall(function()  
+                                  game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))  
+                          end)  
+                  end  
+          end  
+  end)  
+ drops:Toggle("Choose Weapon To Fast Actack",false, function(v) 
+ if Weapon == nill then 
+ DiscordLib:Notification("Warning", "Choose Weapon to Fast Attack", "Ok") 
+ elseif Weapon ~= nil then 
+  getgenv().e = v  
+  spawn(function()  
+  while e == true do  
+  pcall(function()  
+  while e do wait()  game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
+  wait(0.11)  
+  end  
+  end)  
+  end  
+  end) 
  end 
- local drop = drops:Dropdown("Pick", Weaponlist, function(m) 
- for i, k in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
- if m == k.Name then 
-         Weapon = m 
- if Weapon then 
- game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon)) 
+  end)  
+  drops:Toggle("Choose Weapon To x5 Fast Actack",false, function(v) 
+ if Weapon == nill then 
+ DiscordLib:Notification("Warning", "Choose Weapon to Fast Atack x5", "Ok") 
+ elseif Weapon ~= nil then 
+  for _ = 1,5 do  
+  getgenv().e = v  
+  spawn(function()  
+  while e == true do  
+  pcall(function()  
+  while e do wait()  
+  pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
+  wait(0.11)  
+  end)  
+  end  
+  end)  
+  end  
+  end)  
+  end  
  end 
+  end)  
+  drops:Toggle("Choose Weapon To x10 Fast Actack",false, function(v)  
+ if Weapon == nill then 
+ DiscordLib:Notification("Warning", "Choose Weapon to Fast Attack x10", "Ok") 
+ elseif Weapon ~= nil then 
+  for _ = 1,10 do  
+  getgenv().e = v  
+  spawn(function()  
+  while e == true do  
+  pcall(function()  
+  while e do wait()  
+  pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
+  wait(0.1)  
+  end)  
+  end  
+  end)  
+  end  
+  end)  
+  end  
  end 
+  end)  
+  drops:Toggle("Choose Weapon To X20 Actack",false, function(v)  
+ if Weapon == nill then 
+ DiscordLib:Notification("Warning", "Choose Weapon to Fast Attack x20", "Ok") 
+ elseif Weapon ~= nil then 
+  for _ = 1,20 do  
+  getgenv().e = v  
+  spawn(function()  
+  while e == true do  
+  pcall(function()  
+  while e do wait()  
+  spawn(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1)  
+  wait(0.1)  
+  end)  
+  end  
+  end)  
+  end  
+  end)  
+  end  
  end 
- end) 
- drops:Button("Refresh Weapon", function() 
- drop:Clear() 
- for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
- if v:IsA("Tool") then 
- drop:Add(v.Name) 
- end 
- end 
- end) 
- drops:Toggle("Auto Equip",false, function(a) 
-         AutoEquiped = a 
- end) 
+  end)  
+  drops:Toggle("Grab Any Tool Drop",false, function(l)  
+  getgenv().grabtools = l  
+  spawn(function()  
+  while grabtools do wait()  
+  pcall(function()  
+  while grabtools do wait()  
+  spawn(function()  
+  for i, m in pairs(game.Workspace:GetChildren()) do  
+  if m.ClassName == "Tool" and m:FindFirstChild("Handle") then  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait()  
+ if grabtools == false then break; end  
+ end  
+  end  
+  end)  
+  end  
+  end)  
+  end  
+  end) 
  spawn(function() 
-         while wait() do 
-                 if AutoEquiped then 
-                         pcall(function() 
-                                 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon)) 
-                         end) 
-                 end 
-         end 
- end) 
-drops:Toggle("Choose Weapon To Fast Actack",false, function(v)
- getgenv().e = v 
- spawn(function() 
- while e == true do 
- pcall(function() 
- while e do wait()  game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
- wait(0.11) 
+ while wait() do 
+ if not getgenv().grabtools then break end 
+ for i, v in pairs(game:GetService("Workspace"):GetChildren()) do 
+ if v:FindFirstChild("ClickDetector") then 
+ fireclickdetector(v.ClickDetector) wait() 
+ end 
+ end 
  end 
  end) 
- end 
- end)
- end) 
- drops:Toggle("Choose Weapon To x5 Fast Actack",false, function(v) 
- for _ = 1,5 do 
- getgenv().e = v 
- spawn(function() 
- while e == true do 
- pcall(function() 
- while e do wait() 
- pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
- wait(0.11) 
- end) 
- end 
- end) 
- end 
- end) 
- end 
- end) 
- drops:Toggle("Choose Weapon To x10 Fast Actack",false, function(v) 
- for _ = 1,10 do 
- getgenv().e = v 
- spawn(function() 
- while e == true do 
- pcall(function() 
- while e do wait() 
- pcall(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
- wait(0.1) 
- end) 
- end 
- end) 
- end 
- end) 
- end 
- end) 
- drops:Toggle("Choose Weapon To X20 Actack",false, function(v) 
- for _ = 1,20 do 
- getgenv().e = v 
- spawn(function() 
- while e == true do 
- pcall(function() 
- while e do wait() 
- spawn(function()        game:GetService("Players").LocalPlayer.Character[Weapon].Hitbox:FireServer(1, 1) 
- wait(0.1) 
- end) 
- end 
- end) 
- end 
- end) 
- end 
- end) 
- drops:Toggle("Grab Any Tool Drop",false, function(l) 
- getgenv().grabtools = l 
- spawn(function() 
- while grabtools do wait() 
- pcall(function() 
- while grabtools do wait() 
- spawn(function() 
- for i, m in pairs(game.Workspace:GetChildren()) do 
- if m.ClassName == "Tool" and m:FindFirstChild("Handle") then  firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle, 1) wait() 
-if grabtools == false then break; end 
-end 
- end 
- end) 
- end 
- end) 
- end 
- end)
-spawn(function()
-while wait() do
-if not getgenv().grabtools then break end
-for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-if v:FindFirstChild("ClickDetector") then
-fireclickdetector(v.ClickDetector) wait()
-end
-end
-end
-end)
- end) 
-
+  end)  
   local drops = serv:Channel("Player")  
   local plrlist = {}  
   local plr = nil  
@@ -278,18 +297,29 @@ end)
   end  
   end)  
   drops:Button("Teleport To Player", function()  
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Teleport Player", "Ok") 
+ elseif plr ~= nil then 
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame  
+ end 
   end)  
   drops:Button("Choose Player To Super Ultra Skill", function()  
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Super Ultra Skill", "Ok") 
+ elseif plr ~= nil then 
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame  
   wait(0.1)  
   for i,v in pairs(game:GetDescendants()) do  
   if v:IsA("RemoteEvent") and v.Name == "Fire" then  
   v:FireServer()  
   end  
-  end  
+  end 
+ end 
   end)  
   drops:Toggle("Auto Teleport Player",false, function(t)  
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Auto Teleport Player", "Ok") 
+ elseif plr ~= nil then 
   getgenv().autotele = t  
   spawn(function()  
   while autotele do wait()  
@@ -298,8 +328,12 @@ end)
   end)  
   end  
   end)  
+ end 
   end)  
   drops:Toggle("Auto Bring Player",false, function(a)  
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Bring Player", "Ok") 
+ elseif plr ~= nil then 
   getgenv().AutoBr = a  
   spawn(function()  
   while AutoBr do wait()  
@@ -313,8 +347,12 @@ end)
   end)  
   end  
   end)  
+ end 
   end)  
   drops:Toggle("Auto Tween Bring Player",false, function(p)  
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Tween Bring Player", "Ok") 
+ elseif plr ~= nil then 
   getgenv().autobri = p  
   spawn(function()  
   while autobri do wait()  
@@ -327,21 +365,22 @@ end)
   end)  
   end  
   end)  
+ end 
   end)  
   drops:Toggle("Auto Bring All Player",false, function(t)  
-  getgenv().autobring1 = t
-spawn(function()
-while getgenv().autobring1 do wait()
-spawn(function()
-for i, v in pairs(game.Players:GetChildren()) do
-local ok = game.Players.LocalPlayer.Name
-if v.Name ~=  ok  then 
-v.Character.HumanoidRootPart.CFrame  = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -7) wait()
-end
-end
-end)
-end
-end)
+  getgenv().autobring1 = t 
+ spawn(function() 
+ while getgenv().autobring1 do wait() 
+ spawn(function() 
+ for i, v in pairs(game.Players:GetChildren()) do 
+ local ok = game.Players.LocalPlayer.Name 
+ if v.Name ~=  ok  then  
+ v.Character.HumanoidRootPart.CFrame  = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -7) wait() 
+ end 
+ end 
+ end) 
+ end 
+ end) 
   end)  
   drops:Label("Need Player In Your Sever")  
   drops:Toggle("Super Ultra DAMGE Attack",false, function(v)  
@@ -365,95 +404,99 @@ end)
   end  
   end  
   end)  
-  end) 
-drops:Toggle("Auto Armor",false, function(o)
-getgenv().autobuffhp = o
-while autobuffhp do wait()
-for i, v in pairs(game.Players:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then
-v:FireServer()
-if autobuffhp == false then break; end
-end
-end
-end
-end)
-drops:Button("Super Ultra Skill", function()
-for i,v in pairs(game:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" then
-v:FireServer()
-end
-end
-end)
-drops:Button("Super Ultra Inf Legendary Skill Attack", function() 
-for i, v in pairs(game:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name ~= "Eat" then
-v:FireServer()
-end
-end
-for i, v in pairs(game:GetDescendants()) do
-if v:IsA("RemoteEvent") and v.Name == "Fire" then
-v:FireServer()
-end
-end
-end)
-local drops = serv:Channel("Player2")
-local plrlist = {}
-local plr = nil
-for i, v in pairs(game:GetService("Players"):GetChildren()) do
-table.insert(plrlist,v.Name)
-end
-local drop = drops:Dropdown("Choose Player", plrlist, function(y)
-for i, v in pairs(game.Players:GetPlayers()) do
-if v.Name == y then
-plr = y
-end
-end
-end)
-drops:Button("Refresh Player", function() 
-drop:Clear()
-for i, b in pairs(game.Players:GetPlayers()) do
-drop:Add(b.Name)
-end
-end)
-drops:Toggle("Super Ultra DAMGE Attack",false, function(v)  
-  getgenv().autop = v; 
-  spawn(function()  
-  while autop do wait() 
- if not getgenv().autop then break end 
-  for i, c in pairs(game.Players:GetChildren()) do  
-  if c.ClassName == "Player" then  
-  for i, f in pairs(c:GetChildren()) do  
-  if f:IsA("Backpack") then  
-  for i, a in pairs(f:GetDescendants()) do  
-  if a:IsA("RemoteEvent") and a.Name == "Hitbox" then  
-  a:FireServer(1, 0)  
- break; 
-  end  
-  end  
-  end  
-  end  
+  end)  
+  drops:Toggle("Auto Armor",false, function(o)  
+  getgenv().autobuffhp = o  
+  while autobuffhp do wait()  
+  for i, v in pairs(game.Players:GetDescendants()) do  
+  if v:IsA("RemoteEvent") and v.Name == "Fire" and v:FindFirstChild("Armor") then  
+  v:FireServer()  
+  if autobuffhp == false then break; end  
   end  
   end  
   end  
   end)  
+  drops:Button("Super Ultra Skill", function()  
+  for i,v in pairs(game:GetDescendants()) do  
+  if v:IsA("RemoteEvent") and v.Name == "Fire" then  
+  v:FireServer()  
+  end  
+  end  
+  end)  
+  drops:Button("Super Ultra Inf Legendary Skill Attack", function()   
+  for i, v in pairs(game:GetDescendants()) do  
+  if v:IsA("RemoteEvent") and v.Name ~= "Eat" then  
+  v:FireServer()  
+  end  
+  end  
+  for i, v in pairs(game:GetDescendants()) do  
+  if v:IsA("RemoteEvent") and v.Name == "Fire" then  
+  v:FireServer()  
+  end  
+  end  
   end) 
-local sldr = drops:Slider("Player Hitbox", 0, 2500, 0, function(t)
-local plr1 = game.Players.LocalPlayer
-if game.Players ~= plr1 and game.Players[plr].Character:FindFirstChild("HumanoidRootPart") then
-local sizeArg = t
-			local Size = Vector3.new(sizeArg,sizeArg,sizeArg)
-			local Root = game.Players[plr].Character:FindFirstChild("HumanoidRootPart")
-			if Root:IsA("BasePart") then
-		if not sizeArg == 1 then
-					Root.Size = Vector3.new(2,1,1)
-					Root.Transparency = 0.4
-				else
-					Root.Size = Size
-					Root.Transparency = 0.4
-				end
-end
-end
-end)
+ local drops = serv:Channel("Player2") 
+ local plrlist = {} 
+ local plr = nil 
+ for i, v in pairs(game:GetService("Players"):GetChildren()) do 
+ table.insert(plrlist,v.Name) 
+ end 
+ local drop = drops:Dropdown("Choose Player", plrlist, function(y) 
+ for i, v in pairs(game.Players:GetPlayers()) do 
+ if v.Name == y then 
+ plr = y 
+ end 
+ end 
+ end) 
+ drops:Button("Refresh Player", function()  
+ drop:Clear() 
+ for i, b in pairs(game.Players:GetPlayers()) do 
+ drop:Add(b.Name) 
+ end 
+ end) 
+ drops:Toggle("Super Ultra DAMGE Attack",false, function(v)   
+   getgenv().autop = v;  
+   spawn(function()   
+   while autop do wait()  
+  if not getgenv().autop then break end  
+   for i, c in pairs(game.Players:GetChildren()) do   
+   if c.ClassName == "Player" then   
+   for i, f in pairs(c:GetChildren()) do   
+   if f:IsA("Backpack") then   
+   for i, a in pairs(f:GetDescendants()) do   
+   if a:IsA("RemoteEvent") and a.Name == "Hitbox" then   
+   a:FireServer(1, 0)   
+  break;  
+   end   
+   end   
+   end   
+   end   
+   end   
+   end   
+   end   
+   end)   
+   end)  
+ local sldr = drops:Slider("Player Hitbox", 0, 2500, 0, function(t) 
+ if plr == nill then 
+ DiscordLib:Notification("Warning", "Choose Player to Hitbox Player", "Ok") 
+ elseif plr ~= nil then 
+ local plr1 = game.Players.LocalPlayer 
+ if game.Players ~= plr1 and game.Players[plr].Character:FindFirstChild("HumanoidRootPart") then 
+ local sizeArg = t 
+                         local Size = Vector3.new(sizeArg,sizeArg,sizeArg) 
+                         local Root = game.Players[plr].Character:FindFirstChild("HumanoidRootPart") 
+                         if Root:IsA("BasePart") then 
+                 if not sizeArg == 1 then 
+                                         Root.Size = Vector3.new(2,1,1) 
+                                         Root.Transparency = 0.4 
+                                 else 
+                                         Root.Size = Size 
+                                         Root.Transparency = 0.4 
+                                 end 
+ end 
+ end 
+ end 
+ end)
 drops:Button("Hitbox 1", function()
 sldr:Change(1)
 end)
