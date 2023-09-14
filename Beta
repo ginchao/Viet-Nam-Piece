@@ -645,6 +645,23 @@ btns:Button("Platinum Town lv 2000+", function()
 end)
 local btns = serv:Channel("Mics")
 btns:Label("Cre Hub:Grabiel Ynu")
+local inf = nil
+btns:Toggle("Infjump", false, function(v)
+if inf then inf:Disconnect() end
+getgenv().infi = v
+local Player = game.Players.LocalPlayer
+if infi ~= inf then
+inf = game.UserInputService.JumpRequest:Connect(function()
+if infi == false then inf:Disconnect() end
+    Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+wait()
+end)
+end
+end)
+
+
+
+
 btns:Button("WallSky", function()
   
  Local = game:GetService('Players').LocalPlayer 
