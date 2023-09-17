@@ -330,7 +330,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle,
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame  
  end 
   end)  
-  drops:Button("Choose Player To Super Ultra Skill", function()  
+  drops:Button("Choose Player To Super Ultra Skill, Need LoadMap", function()  
  if plr == nil then 
  DiscordLib:Notification("Warning", "Choose Player to Super Ultra Skill", "Ok") 
  elseif plr ~= nil then 
@@ -343,7 +343,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle,
   end 
  end 
   end)  
-  drops:Toggle("Auto Teleport Player",false, function(t)  
+  drops:Toggle("Auto Teleport Player, Need LoadMap",false, function(t)  
  if plr == nil then 
  DiscordLib:Notification("Warning", "Choose Player to Auto Teleport Player", "Ok") 
  elseif plr ~= nil then 
@@ -357,7 +357,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle,
   end)  
  end 
   end)  
-  drops:Toggle("Auto Bring Player",false, function(a)  
+  drops:Toggle("Auto Bring Player, Need LoadMap",false, function(a)  
  if plr == nil then 
  DiscordLib:Notification("Warning", "Choose Player to Bring Player", "Ok") 
  elseif plr ~= nil then 
@@ -374,7 +374,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle,
   end)  
  end 
   end)  
-  drops:Toggle("Auto Tween Bring Player",false, function(p)  
+  drops:Toggle("Auto Tween Bring Player, Need LoadMap",false, function(p)  
  if plr == nil then 
  DiscordLib:Notification("Warning", "Choose Player to Tween Bring Player", "Ok") 
  elseif plr ~= nil then 
@@ -392,7 +392,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, m.Handle,
   end)  
  end 
   end)  
-  drops:Toggle("Auto Bring All Player",false, function(t)  
+  drops:Toggle("Auto Bring All Player, Need LoadMap",false, function(t)  
   getgenv().autobring1 = t 
  spawn(function() 
  while getgenv().autobring1 do wait() 
@@ -792,6 +792,9 @@ btns:Label("Script")
 btns:Button("Lucky Block Battleground", function() 
  loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/LuckyBlockBattleground/main/HttVeg'))() 
  end)
+btns:Button("Sakura Stand", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Sakura-Stand/main/ST'))() 
+end)
  btns:Button("Tele Tool", function()  
   mouse = game.Players.LocalPlayer:GetMouse()  
   tool = Instance.new("Tool")  
