@@ -81,31 +81,38 @@ drops:Label("Auto Quest Đã Được Tối Ưu")
 local tgls = serv:Channel("Stats and Load Map") 
  tgls:Toggle("Auto Sword",false, function(z) 
  getgenv().autostats = z 
- while autostats do wait() 
- game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Sword") 
+spawn(function()
+ while autostats do wait()  game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Sword") 
  wait() 
  end 
+end)
  end) 
  tgls:Toggle("Auto Fruit",false, function(z) 
  getgenv().autostats = z 
+spawn(function()
  while autostats do wait() 
  game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("DevilFruit") 
  wait() 
  end 
+end)
  end) 
  tgls:Toggle("Auto Health",false, function(z) 
  getgenv().autostats = z 
+spawn (function()
  while autostats do wait() 
  game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("MaxHealth") 
  wait() 
  end 
+end)
  end) 
  tgls:Toggle("Auto Melee",false, function(z) 
  getgenv().autostats = z 
+spawn(function()
  while autostats==true do wait() 
  game:GetService("ReplicatedStorage"):FindFirstChild("StatSystem"):WaitForChild("Points"):FireServer("Melee") 
  wait() 
- end 
+ end
+end)
  end) 
  tgls:Button("LoadMap", function() 
          local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart 
