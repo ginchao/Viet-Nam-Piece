@@ -128,15 +128,16 @@ end)
 end)
 tgls:Label("Buy") 
 tgls:Toggle("AutoClickGodBox",false, function(e)
-for _ = 1,5 do
-	getgenv().AutoClickGodBox = e
+for _ = 1,2 do
+	getgenv().AutoClickGodBox = e;
 	while AutoClickGodBox == true do wait()
+if not getgenv().AutoClickGodBox then break; end
 		fireclickdetector(game:GetService("Workspace")["Platinum Town [ 2000 - 3000 ]"].PlatinumMAP.GodBox.ClickDetector)
 	end
 end
 end)
 tgls:Toggle("Auto Random Secret Fruit",false, function(v)
-for _ = 1,3 do
+for _ = 1,2 do
 getgenv().auto = v
 spawn(function()
 while auto do wait()
