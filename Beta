@@ -1,1 +1,6 @@
+
+if true then
+
+
 loadstring('https://raw.githubusercontent.com/ginchao/Vietnampiece2-dutru/main/Second%20Sea'))()
+end
