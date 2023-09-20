@@ -1,6 +1,2 @@
 
-if true then
-
-
-loadstring('https://raw.githubusercontent.com/ginchao/Vietnampiece2-dutru/main/Second%20Sea'))()
-end
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ginchao/Vietnampiece2-dutru/main/Second%20Sea'))()
